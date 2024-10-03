@@ -11,7 +11,7 @@ export default function LogoComponent() {
 
     return (
         <div className={styles.disquietLogoDark2} onClick={handleLogoClick} style={{ cursor: "pointer" }}>
-            <img className={styles.clipPathGroup} alt="" src="blink aster.gif" />
+            <img className={styles.clipPathGroup} alt="" src="blink-aster.gif" />
         </div>
     );
 }

@@ -1,5 +1,14 @@
 import styles from "./page.module.css";
 import LogoComponent from "./components/LogoComponent";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "PMC W24",
+    description: "4주 동안 프로덕트 만들고 런칭하는 레이스",
+    icons: {
+        icon: "/blink aster.gif", // favicon 설정
+    },
+};
 
 export default function Home() {
     return (
