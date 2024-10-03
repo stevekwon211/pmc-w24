@@ -20,9 +20,7 @@ export default function Home() {
                             <div className={styles.headerFrame}>
                                 <LogoComponent />
                                 <div className={styles.productMakersClubContainer}>
-                                    <span className={styles.productMakersClubText}>
-                                        <b>{`Product Makers Club W24`}</b>
-                                    </span>
+                                    <span className={styles.productMakersClubText}>Product Makers Club W24</span>
                                 </div>
                                 <a
                                     href="https://tally.so/r/wvODPX"
