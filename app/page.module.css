@@ -1,0 +1,213 @@
+@import url("https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap");
+
+.main {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    padding: 24px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 24px; /* gap 유지 */
+}
+
+/* Remove the following classes:
+.backgroundWrapper
+.background
+*/
+
+/* Rest of the styles remain unchanged */
+
+.headerContainer {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 8px 16px;
+    background-color: rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
+    margin-bottom: 24px;
+    /* border 제거 */
+}
+
+.disquietLogoDark2 {
+    flex: 0 0 auto;
+    width: clamp(32px, 5vw, 64px);
+    height: clamp(32px, 5vw, 64px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+}
+
+.productMakersClubContainer {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.productMakersClubText {
+    font-size: clamp(16px, 3vw, 36px);
+    font-family: "Pixelify Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.makersClubW24 {
+    font-weight: 600;
+    font-family: Pretendard;
+}
+
+.notificationButton {
+    flex: 0 0 auto;
+    background-color: #6d55ff;
+    height: clamp(32px, 5vw, 64px);
+    padding: 0 clamp(8px, 2vw, 14.4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: 2px solid #4d3bb3;
+    transition: all 0.1s ease;
+    position: relative;
+    box-shadow: inset -2px -2px 0px 0px #4d3bb3, inset 2px 2px 0px 0px #8e7dff;
+}
+
+.notificationButton::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: transparent;
+    transition: all 0.1s ease;
+}
+
+.notificationButton:hover {
+    background-color: #7d67ff;
+    box-shadow: inset -6px -6px 0px 0px #4d3bb3, inset 6px 6px 0px 0px #8e7dff;
+}
+
+.notificationButton:hover .notificationText {
+    color: #e0e0e0;
+    transform: translate(-1px, -1px);
+}
+
+.notificationButton:active {
+    background-color: #5a46d6;
+    border-color: #3d2e8f;
+    box-shadow: inset -2px -2px 0px 0px #3d2e8f, inset 2px 2px 0px 0px #6d55ff;
+}
+
+.notificationButton:active .notificationText {
+    color: #c0c0c0;
+    transform: translate(0, 0); /* 클릭 시 글자를 원위치로 */
+}
+
+.notificationButton:active::before {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.notificationText {
+    font-size: clamp(12px, 2vw, 24px);
+    font-family: "NeoDunggeunmo Pro";
+    color: white;
+    text-shadow: 1px 1px #4d3bb3;
+    position: relative;
+    transition: all 0.1s ease;
+}
+
+/* 기존 스타일은 그대로 유지하고 아래 스타일을 추가합니다 */
+
+.frameParent {
+    display: flex;
+    width: 100%;
+    flex: 1;
+    overflow-y: auto;
+    margin-bottom: 24px; /* 하단 여백 추가 */
+}
+
+.frameGroup {
+    display: flex;
+    flex-direction: column;
+    width: 320px; /* 원래 크기 */
+    gap: 10px;
+}
+
+.frameChild {
+    height: 200px; /* 각 프레임의 높이, 필요에 따라 조정 가능 */
+    border: 1px solid #fff;
+    background-color: transparent; /* 배경색 제거 */
+}
+
+.frameContainer {
+    flex: 1;
+    margin-left: 10px; /* frameGroup과의 간격 */
+}
+
+.frameChild2 {
+    height: 100%;
+    border: 1px solid #fff;
+    background-color: transparent; /* 배경색 제거 */
+}
+
+.content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    overflow-y: auto;
+}
+
+.footer {
+    position: sticky; /* 변경: sticky로 설정 */
+    bottom: 0; /* 하단에 고정 */
+    width: 100%;
+    height: 100px; /* 푸터의 높이를 조절하세요 */
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2; /* 추가: headerContainer와 같은 z-index 설정 */
+}
+
+/* 미디어 쿼리 추가 */
+@media (max-width: 640px) {
+    .headerContainer {
+        flex-direction: column;
+        align-items: center;
+        padding: 8px;
+    }
+
+    .productMakersClubContainer {
+        margin: 8px 0;
+    }
+
+    .notificationButton {
+        width: 100%;
+        margin-top: 8px;
+    }
+}
+
+/* 나머지 스타일은 그대로 유지 */

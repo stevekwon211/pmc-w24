@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --background: #ffffff;
+    --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background: #0a0a0a;
+        --foreground: #ededed;
+    }
+}
+
+html,
+body {
+    height: 100%; /* 3072px에서 100%로 변경 */
+    margin: 0;
+    padding: 0;
+    overscroll-behavior: none;
+}
+
+body {
+    color: var(--foreground);
+    background: var(--background);
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url("/normal-bg.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center 80%; /* 기본 위치 설정: 가로 중앙, 세로 80% 지점 */
+    min-height: 100vh; /* 3072px에서 100vh로 변경 */
+    overflow-y: auto;
+}
+
+/* 브라우저 너비에 따른 배경 이미지 위치 조정 */
+@media (max-width: 640px) {
+    body {
+        background-position: 30% 100%; /* 모바일: 가로 30%, 세로 90% 지점 */
+    }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+    body {
+        background-position: center 95%; /* 태블릿: 가로 중앙, 세로 85% 지점 */
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 1440px) {
+    body {
+        background-image: url("/large-bg.png"); /* 큰 화면용 새 이미지 */
+        background-position: center 100%; /* 작은 데스크톱: 가로 중앙, 세로 75% 지점 */
+    }
+}
+
+@media (min-width: 1441px) {
+    body {
+        background-image: url("/large-bg.png"); /* 큰 화면용 새 이미지 */
+        background-position: center 100%; /* 큰 데스크톱: 가로 중앙, 세로 70% 지점 */
+    }
+}
+
+@layer utilities {
+    .text-balance {
+        text-wrap: balance;
+    }
+}
