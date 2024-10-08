@@ -11,65 +11,70 @@ interface AnimatedLogoProps {
 
 export default function AnimatedLogo({ defaultWidth = 34, defaultHeight = 34 }: AnimatedLogoProps) {
     const logoRef = useRef<HTMLDivElement>(null);
-    const [isHovered, setIsHovered] = useState(false);
+    const [isInteracting, setIsInteracting] = useState(false);
     const currentPositionRef = useRef(0);
     const directionRef = useRef(1);
     const directionChangeTimeRef = useRef(Date.now());
+    const animationFrameIdRef = useRef<number | null>(null);
 
     const handleLogoClick = useCallback(() => {
-        window.open("https://disquiet.io/product-marketplace?customLeaderBoardName=pmc-s24", "_blank");
         window.open("https://disquiet.io/pmc-s24", "_blank");
+        window.open("https://disquiet.io/product-marketplace?customLeaderBoardName=pmc-s24", "_blank");
     }, []);
 
+    const animate = useCallback(() => {
+        if (isInteracting) {
+            animationFrameIdRef.current = requestAnimationFrame(animate);
+            return;
+        }
+
+        const now = Date.now();
+        if (now - directionChangeTimeRef.current >= 3000) {
+            if (Math.random() < 0.5) {
+                directionRef.current *= -1;
+            }
+            directionChangeTimeRef.current = now;
+        }
+
+        currentPositionRef.current += directionRef.current;
+        if (logoRef.current) {
+            logoRef.current.style.transform = `translateX(calc(-50% + ${currentPositionRef.current}px))`;
+        }
+
+        animationFrameIdRef.current = requestAnimationFrame(animate);
+    }, [isInteracting]);
+
     useEffect(() => {
-        const logo = logoRef.current;
-        if (!logo) return;
-
-        let animationFrameId: number;
-
-        const animate = () => {
-            if (isHovered) {
-                animationFrameId = requestAnimationFrame(animate);
-                return;
-            }
-
-            const now = Date.now();
-            if (now - directionChangeTimeRef.current >= 3000) {
-                if (Math.random() < 0.5) {
-                    directionRef.current *= -1;
-                }
-                directionChangeTimeRef.current = now;
-            }
-
-            currentPositionRef.current += directionRef.current;
-            logo.style.transform = `translateX(calc(-50% + ${currentPositionRef.current}px))`;
-
-            animationFrameId = requestAnimationFrame(animate);
-        };
-
         animate();
-
         return () => {
-            cancelAnimationFrame(animationFrameId);
+            if (animationFrameIdRef.current) {
+                cancelAnimationFrame(animationFrameIdRef.current);
+            }
         };
-    }, [isHovered]);
+    }, [animate]);
 
-    const width = isHovered ? 48 : defaultWidth;
-    const height = isHovered ? 48 : defaultHeight;
+    const handleInteractionStart = useCallback(() => setIsInteracting(true), []);
+    const handleInteractionEnd = useCallback(() => setIsInteracting(false), []);
+
+    const width = isInteracting ? 48 : defaultWidth;
+    const height = isInteracting ? 48 : defaultHeight;
 
     return (
         <div
             ref={logoRef}
             className={styles.logoContainer}
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
+            onMouseEnter={handleInteractionStart}
+            onMouseLeave={handleInteractionEnd}
+            onTouchStart={handleInteractionStart}
+            onTouchEnd={handleInteractionEnd}
             onClick={handleLogoClick}
             style={{
                 position: "fixed",
                 bottom: "1vh",
                 left: "50%",
-                transform: `translateX(calc(-50% + ${currentPositionRef.current}px))`,
+                transform: `translateX(-50%)`,
                 cursor: "pointer",
+                willChange: "transform",
             }}
         >
             <div
@@ -77,10 +82,12 @@ export default function AnimatedLogo({ defaultWidth = 34, defaultHeight = 34 }: 
                     position: "relative",
                     width: `${width}px`,
                     height: `${height}px`,
+                    // no transition
+                    transition: "none",
                 }}
             >
                 <Image
-                    src={isHovered ? "/surprised-aster.png" : "/blink-aster.gif"}
+                    src={isInteracting ? "/surprised-aster.png" : "/blink-aster.gif"}
                     alt="Aster Logo"
                     layout="fill"
                     objectFit="contain"
