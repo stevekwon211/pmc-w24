@@ -1,408 +1,402 @@
-@font-face {
-    font-family: "NeoDunggeunmoPro-Regular";
-    src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/NeoDunggeunmoPro-Regular.woff2")
-        format("woff2");
-}
-
 .main {
-    position: relative;
-    min-height: 100vh;
-    width: 100%;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    box-sizing: border-box;
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
 }
 
 .content {
-    position: relative;
-    z-index: 1;
-    min-height: 100vh;
-    padding: 24px;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    user-select: none;
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  padding: 24px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  user-select: none;
 }
 
 .headerContainer {
-    position: absolute;
-    top: 40vh; /* 화면 높이의 40% 지점에 위치 */
-    left: 20%; /* 왼쪽 마진 20% */
-    right: 20%; /* 오른쪽 마진 20% */
-    z-index: 2;
-    display: flex;
-    flex-direction: column;
-    width: 60%; /* 전체 너비의 60%만 사용 (100% - 20% - 20%) */
-    background-color: transparent;
-    box-sizing: border-box;
+  position: absolute;
+  top: 40vh; /* 화면 높이의 40% 지점에 위치 */
+  left: 20%; /* 왼쪽 마진 20% */
+  right: 20%; /* 오른쪽 마진 20% */
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  width: 60%; /* 전체 너비의 60%만 사용 (100% - 20% - 20%) */
+  background-color: transparent;
+  box-sizing: border-box;
 }
 
 .headerFrame {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    padding: 16px;
-    background-color: rgba(50, 104, 118, 0.6);
-    box-sizing: border-box;
-    gap: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 16px;
+  background-color: rgba(50, 104, 118, 0.6);
+  box-sizing: border-box;
+  gap: 16px;
 }
 
 .productMakersClubContainer {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    text-align: center;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  text-align: center;
 }
 
 .productMakersClubText {
-    font-size: clamp(16px, 3vw, 36px);
-    font-family: "NeoDunggeunmo Pro", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-    color: #fff;
-    padding: 5px 10px;
-    border-radius: 5px;
-    user-select: none;
+  font-size: clamp(16px, 3vw, 36px);
+  font-family: var(--font-neodunggeunmo);
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  user-select: none;
 }
 
 .makersClubW24 {
-    font-weight: 600;
-    font-family: Pretendard;
+  font-weight: 600;
+  font-family: Pretendard;
 }
 
 .notificationButton {
-    flex: 0 0 auto;
-    background-color: #d07365;
-    height: clamp(32px, 5vw, 64px);
-    padding: 0 clamp(8px, 2vw, 14.4px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    cursor: pointer;
-    border: 2px solid #b05a4e;
-    transition: all 0.1s ease;
-    position: relative;
-    box-shadow: inset -2px -2px 0px 0px #b05a4e, inset 2px 2px 0px 0px #e08c7f;
-    user-select: none;
-    width: auto;
+  flex: 0 0 auto;
+  background-color: #d07365;
+  height: clamp(32px, 5vw, 64px);
+  padding: 0 clamp(8px, 2vw, 14.4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
+  border: 2px solid #b05a4e;
+  transition: all 0.1s ease;
+  position: relative;
+  box-shadow: inset -2px -2px 0px 0px #b05a4e, inset 2px 2px 0px 0px #e08c7f;
+  user-select: none;
+  width: auto;
 }
 
 .notificationButton::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: transparent;
-    transition: all 0.1s ease;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: transparent;
+  transition: all 0.1s ease;
 }
 
 .notificationButton:hover {
-    background-color: #e08c7f;
-    box-shadow: inset -6px -6px 0px 0px #b05a4e, inset 6px 6px 0px 0px #f0a599;
+  background-color: #e08c7f;
+  box-shadow: inset -6px -6px 0px 0px #b05a4e, inset 6px 6px 0px 0px #f0a599;
 }
 
 .notificationButton:hover .notificationText {
-    color: #e0e0e0;
-    transform: translate(-1px, -1px);
+  color: #e0e0e0;
+  transform: translate(-1px, -1px);
 }
 
 .notificationButton:active {
-    background-color: #b05a4e;
-    border-color: #8c4e45;
-    box-shadow: inset -2px -2px 0px 0px #8c4e45, inset 2px 2px 0px 0px #d07365;
+  background-color: #b05a4e;
+  border-color: #8c4e45;
+  box-shadow: inset -2px -2px 0px 0px #8c4e45, inset 2px 2px 0px 0px #d07365;
 }
 
 .notificationButton:active .notificationText {
-    color: #c0c0c0;
-    transform: translate(0, 0);
+  color: #c0c0c0;
+  transform: translate(0, 0);
 }
 
 .notificationButton:active::before {
-    background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 .notificationText {
-    font-size: clamp(12px, 2vw, 24px);
-    font-family: "NeoDunggeunmo Pro";
-    color: #ffffff;
-    text-shadow: 1px 1px #8c4e45;
-    position: relative;
-    transition: all 0.1s ease;
-    user-select: none;
+  font-size: clamp(12px, 2vw, 24px);
+  font-family: "NeoDunggeunmo Pro";
+  color: #ffffff;
+  text-shadow: 1px 1px #8c4e45;
+  position: relative;
+  transition: all 0.1s ease;
+  user-select: none;
 }
 
 .frameParent {
-    display: flex;
-    width: 100%;
-    flex: 1;
-    overflow-y: auto;
-    margin-bottom: 24px;
+  display: flex;
+  width: 100%;
+  flex: 1;
+  overflow-y: auto;
+  margin-bottom: 24px;
 }
 
 .frameGroup {
-    display: flex;
-    flex-direction: column;
-    width: auto;
-    gap: 10px;
-    flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  gap: 10px;
+  flex: 0 0 auto;
 }
 
 .frameChild {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #5a4c2e;
-    font-size: clamp(14px, 2vw, 24px);
-    font-weight: bold;
-    cursor: pointer;
-    font-family: "NeoDunggeunmo Pro", sans-serif;
-    text-shadow: 1px 1px #ffffff;
-    background-color: #fcf2d6;
-    border: 2px solid #e8d9b0;
-    transition: all 0.1s ease;
-    position: relative;
-    box-shadow: inset -2px -2px 0px 0px #e8d9b0, inset 2px 2px 0px 0px #ffffff;
-    user-select: none;
-    padding: 10px 20px;
-    white-space: nowrap;
-    width: fit-content;
-    min-width: 200px;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #5a4c2e;
+  font-size: clamp(14px, 2vw, 24px);
+  font-weight: bold;
+  cursor: pointer;
+  font-family: "NeoDunggeunmo Pro", sans-serif;
+  text-shadow: 1px 1px #ffffff;
+  background-color: #fcf2d6;
+  border: 2px solid #e8d9b0;
+  transition: all 0.1s ease;
+  position: relative;
+  box-shadow: inset -2px -2px 0px 0px #e8d9b0, inset 2px 2px 0px 0px #ffffff;
+  user-select: none;
+  padding: 10px 20px;
+  white-space: nowrap;
+  width: fit-content;
+  min-width: 200px;
 }
 
 .frameChild:hover {
-    background-color: #fff9e6;
-    box-shadow: inset -4px -4px 0px 0px #e8d9b0, inset 4px 4px 0px 0px #ffffff;
+  background-color: #fff9e6;
+  box-shadow: inset -4px -4px 0px 0px #e8d9b0, inset 4px 4px 0px 0px #ffffff;
 }
 
 .frameChild:hover span {
-    color: #3e3420;
-    transform: translate(-1px, -1px);
+  color: #3e3420;
+  transform: translate(-1px, -1px);
 }
 
 .frameChild:active {
-    background-color: #e8d9b0;
-    border-color: #d4c28a;
-    box-shadow: inset -2px -2px 0px 0px #d4c28a, inset 2px 2px 0px 0px #fcf2d6;
+  background-color: #e8d9b0;
+  border-color: #d4c28a;
+  box-shadow: inset -2px -2px 0px 0px #d4c28a, inset 2px 2px 0px 0px #fcf2d6;
 }
 
 .frameChild:active span {
-    color: #2a240f;
-    transform: translate(0, 0);
+  color: #2a240f;
+  transform: translate(0, 0);
 }
 
 .frameChild:active::before {
-    background-color: rgba(90, 76, 46, 0.05);
+  background-color: rgba(90, 76, 46, 0.05);
 }
 
 .frameContainer {
-    flex: 1;
-    margin-left: 10px;
-    display: flex;
-    flex-direction: column;
+  flex: 1;
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
 }
 
 .frameChild2 {
-    flex: 1;
-    background-color: rgba(0, 0, 0, 0.5);
+  flex: 1;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    overflow-y: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow-y: auto;
 }
 
 .footer {
-    position: sticky;
-    bottom: 0;
-    width: 100%;
-    height: auto;
-    min-height: 60px;
-    padding: 10px 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 2;
-    user-select: none;
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+  min-height: 60px;
+  padding: 10px 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  user-select: none;
 }
 
 .footerText {
-    font-size: 14px;
-    font-family: "Pixelify Sans", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: normal;
-    font-style: normal;
-    color: #fff;
-    text-shadow: 1px 1px #4d3bb3;
-    padding: 5px 10px;
+  font-size: 14px;
+  font-family: "Pixelify Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: normal;
+  font-style: normal;
+  color: #fff;
+  text-shadow: 1px 1px #4d3bb3;
+  padding: 5px 10px;
 }
 
 @media (max-width: 640px) {
-    .headerFrame {
-        padding: 12px;
-        gap: 12px;
-    }
+  .headerFrame {
+    padding: 12px;
+    gap: 12px;
+  }
 
-    .productMakersClubContainer {
-    }
+  .productMakersClubContainer {
+  }
 
-    .notificationButton {
-        width: 100%;
-    }
+  .notificationButton {
+    width: 100%;
+  }
 }
 
 @media (min-width: 641px) and (max-width: 1024px) {
-    .headerFrame {
-    }
+  .headerFrame {
+  }
 
-    .disquietLogoDark2,
-    .productMakersClubContainer,
-    .notificationButton {
-        margin: 0;
-    }
+  .disquietLogoDark2,
+  .productMakersClubContainer,
+  .notificationButton {
+    margin: 0;
+  }
 }
 
 .showContainer {
-    width: 100%;
-    padding: 10px 0;
-    background-color: rgba(208, 115, 101, 0.5);
-    overflow: hidden;
+  width: 100%;
+  padding: 10px 0;
+  background-color: rgba(208, 115, 101, 0.5);
+  overflow: hidden;
 }
 
 .marquee {
-    display: flex;
-    width: 200%;
-    animation: marquee 30s linear infinite;
+  display: flex;
+  width: 200%;
+  animation: marquee 30s linear infinite;
 }
 
 .marqueeContent {
-    display: flex;
-    width: 100%;
-    padding: 0;
+  display: flex;
+  width: 100%;
+  padding: 0;
 }
 
 .marqueeContent span {
-    flex: 1;
-    white-space: nowrap;
-    color: #fff;
-    font-size: 16px;
-    font-family: "NeoDunggeunmo Pro", sans-serif;
-    padding: 0 40px;
-    text-align: center;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    text-shadow: 1px 1px #8c4e45;
+  flex: 1;
+  white-space: nowrap;
+  color: #fff;
+  font-size: 16px;
+  font-family: "NeoDunggeunmo Pro", sans-serif;
+  padding: 0 40px;
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-shadow: 1px 1px #8c4e45;
 }
 
 @media (min-width: 1025px) {
-    .marqueeContent span {
-        font-size: 20px;
-    }
+  .marqueeContent span {
+    font-size: 20px;
+  }
 }
 
 @keyframes marquee {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-50%);
-    }
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 .marquee:hover {
-    animation-play-state: paused;
+  animation-play-state: paused;
 }
 
 .comingSoon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    font-size: 24px;
-    font-family: "NeoDunggeunmo Pro", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 24px;
+  font-family: "NeoDunggeunmo Pro", sans-serif;
 }
 
 .frameContainer {
-    height: 100%;
+  height: 100%;
 }
 
 @media (max-height: 600px) {
-    .headerContainer {
-        top: 20vh;
-    }
+  .headerContainer {
+    top: 20vh;
+  }
 }
 
 @media (min-height: 1000px) {
-    .headerContainer {
-        top: 30vh;
-    }
+  .headerContainer {
+    top: 30vh;
+  }
 }
 
 @media (max-width: 768px) {
-    .headerContainer {
-        left: 10%;
-        right: 10%;
-        width: 80%;
-    }
+  .headerContainer {
+    left: 10%;
+    right: 10%;
+    width: 80%;
+  }
 }
 
 @media (max-width: 480px) {
-    .headerContainer {
-        left: 5%;
-        right: 5%;
-        width: 90%;
-    }
+  .headerContainer {
+    left: 5%;
+    right: 5%;
+    width: 90%;
+  }
 }
 
 /* LogoComponent를 위한 새로운 스타일 */
 .logoContainer {
-    position: fixed;
-    bottom: 5vh;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 3;
-    transition: transform 0.05s linear;
-    width: clamp(32px, 10vw, 64px);
-    height: clamp(32px, 10vw, 64px);
+  position: fixed;
+  bottom: 5vh;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  transition: transform 0.05s linear;
+  width: clamp(32px, 10vw, 64px);
+  height: clamp(32px, 10vw, 64px);
 }
 
 /* 제거할 스타일 */
 .surprisedAster {
-    position: absolute;
-    top: -120px;
-    left: 50%;
-    transform: translateX(-50%);
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-    animation: fadeIn 0.3s ease-in-out forwards;
+  position: absolute;
+  top: -120px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  animation: fadeIn 0.3s ease-in-out forwards;
 }
 
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateX(-50%) translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(-50%) translateY(0);
-    }
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
 }
 
 /* 기존 미디어 쿼리는 그대로 유지 */
