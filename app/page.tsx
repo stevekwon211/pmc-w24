@@ -4,9 +4,9 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
     title: "PMC W24",
-    description: "4주 동안 프로덕트 만들고 런칭하는 레이스",
+    description: "PMC W24",
     icons: {
-        icon: "/surprised-aster.png", // favicon 설정 수정
+        icon: [{ url: "/favicon.ico", sizes: "any" }],
     },
 };
 

@@ -14,6 +14,12 @@
     }
 }
 
+@font-face {
+    font-family: "NeoDunggeunmoPro-Regular";
+    src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/NeoDunggeunmoPro-Regular.woff2")
+        format("woff2");
+}
+
 html,
 body {
     height: 100%; /* 3072px에서 100%로 변경 */
@@ -25,7 +31,7 @@ body {
 body {
     color: var(--foreground);
     background: var(--background);
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "NeoDunggeunmoPro-Regular";
     background-image: url("/normal-bg.png");
     background-size: cover;
     background-repeat: no-repeat;
