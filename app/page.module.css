@@ -127,7 +127,7 @@
 
 .notificationText {
   font-size: clamp(12px, 2vw, 24px);
-  font-family: "NeoDunggeunmo Pro";
+  font-family: var(--font-neodunggeunmo);
   color: #ffffff;
   text-shadow: 1px 1px #8c4e45;
   position: relative;
