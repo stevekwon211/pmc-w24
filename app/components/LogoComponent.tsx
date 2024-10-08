@@ -1,17 +1,26 @@
 "use client";
 
-import { useCallback } from "react";
+import Image from "next/image";
 import styles from "../page.module.css";
 
-export default function LogoComponent() {
-    const handleLogoClick = useCallback(() => {
-        window.open("https://disquiet.io/product-marketplace?customLeaderBoardName=pmc-s24", "_blank");
-        window.open("https://disquiet.io/pmc-s24", "_blank");
-    }, []);
+interface LogoComponentProps {
+    width?: number;
+    height?: number;
+}
 
+export default function LogoComponent({ width = 64, height = 64 }: LogoComponentProps) {
     return (
-        <div className={styles.disquietLogoDark2} onClick={handleLogoClick} style={{ cursor: "pointer" }}>
-            <img className={styles.clipPathGroup} alt="" src="blink-aster.gif" />
+        <div className={styles.logoContainer}>
+            <Image
+                src="/blink-aster.gif"
+                alt="Aster Logo"
+                width={width}
+                height={height}
+                style={{
+                    width: `clamp(${width * 0.75}px, 10vw, ${width}px)`,
+                    height: "auto",
+                }}
+            />
         </div>
     );
 }
