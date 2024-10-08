@@ -1,4 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap");
+@font-face {
+    font-family: "NeoDunggeunmoPro-Regular";
+    src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/NeoDunggeunmoPro-Regular.woff2")
+        format("woff2");
+}
 
 .main {
     position: relative;
@@ -7,6 +11,7 @@
     overflow-y: auto;
     display: flex;
     flex-direction: column;
+    box-sizing: border-box;
 }
 
 .content {
@@ -17,68 +22,54 @@
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    gap: 24px; /* gap 유지 */
-    user-select: none; /* 전체 콘텐츠에 대해 텍스트 선택 방지 */
+    gap: 24px;
+    user-select: none;
 }
 
-/* Remove the following classes:
-.backgroundWrapper
-.background
-*/
-
-/* Rest of the styles remain unchanged */
-
 .headerContainer {
-    position: sticky;
-    top: 0;
+    position: absolute;
+    top: 40vh; /* 화면 높이의 40% 지점에 위치 */
+    left: 20%; /* 왼쪽 마진 20% */
+    right: 20%; /* 오른쪽 마진 20% */
     z-index: 2;
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 60%; /* 전체 너비의 60%만 사용 (100% - 20% - 20%) */
     background-color: transparent;
     box-sizing: border-box;
-    /* margin-bottom: 24px; 제거 */
 }
 
 .headerFrame {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    padding: 8px 16px;
-    background-color: rgba(50, 104, 118, 0.6);
-    box-sizing: border-box;
-}
-
-.disquietLogoDark2 {
-    flex: 0 0 auto;
-    width: clamp(32px, 5vw, 64px);
-    height: clamp(32px, 5vw, 64px);
-    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: transparent;
+    width: 100%;
+    padding: 16px;
+    background-color: rgba(50, 104, 118, 0.6);
+    box-sizing: border-box;
+    gap: 16px;
 }
 
 .productMakersClubContainer {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    text-align: center;
 }
 
 .productMakersClubText {
     font-size: clamp(16px, 3vw, 36px);
-    font-family: "Pixelify Sans", sans-serif;
+    font-family: "NeoDunggeunmo Pro", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
     color: #fff;
     padding: 5px 10px;
     border-radius: 5px;
-    user-select: none; /* 특정 텍스트 요소에 대해 선택 방지 */
+    user-select: none;
 }
 
 .makersClubW24 {
@@ -100,7 +91,8 @@
     transition: all 0.1s ease;
     position: relative;
     box-shadow: inset -2px -2px 0px 0px #b05a4e, inset 2px 2px 0px 0px #e08c7f;
-    user-select: none; /* 버튼과 프레임 차일드에 해 선택 방지 */
+    user-select: none;
+    width: auto;
 }
 
 .notificationButton::before {
@@ -132,7 +124,7 @@
 
 .notificationButton:active .notificationText {
     color: #c0c0c0;
-    transform: translate(0, 0); /* 클릭 시 글자를 원위치로 */
+    transform: translate(0, 0);
 }
 
 .notificationButton:active::before {
@@ -146,14 +138,12 @@
     text-shadow: 1px 1px #8c4e45;
     position: relative;
     transition: all 0.1s ease;
-    user-select: none; /* 특정 텍스트 요소에 대해 선택 방지 */
+    user-select: none;
 }
-
-/* 기존 스타일은 그대로 유지하고 아래 스타일을 추가합니다 */
 
 .frameParent {
     display: flex;
-    width: 100%; /* 전체 너비를 사용하도록 유지 */
+    width: 100%;
     flex: 1;
     overflow-y: auto;
     margin-bottom: 24px;
@@ -164,7 +154,7 @@
     flex-direction: column;
     width: auto;
     gap: 10px;
-    flex: 0 0 auto; /* 내용 맞 크기 조정 */
+    flex: 0 0 auto;
 }
 
 .frameChild {
@@ -172,14 +162,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #5a4c2e; /* 텍스트 색상을 더 어두운 갈색으로 변경 */
+    color: #5a4c2e;
     font-size: clamp(14px, 2vw, 24px);
     font-weight: bold;
     cursor: pointer;
     font-family: "NeoDunggeunmo Pro", sans-serif;
-    text-shadow: 1px 1px #ffffff; /* 텍스트 그림자를 흰색으로 유지 */
+    text-shadow: 1px 1px #ffffff;
     background-color: #fcf2d6;
-    border: 2px solid #e8d9b0; /* 테두리 색상 조정 */
+    border: 2px solid #e8d9b0;
     transition: all 0.1s ease;
     position: relative;
     box-shadow: inset -2px -2px 0px 0px #e8d9b0, inset 2px 2px 0px 0px #ffffff;
@@ -224,8 +214,7 @@
 
 .frameChild2 {
     flex: 1;
-    background-color: rgba(0, 0, 0, 0.5); /* 배경색은 그대로 유지 */
-    /* border 속성 제거 */
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .content {
@@ -245,7 +234,7 @@
     height: auto;
     min-height: 60px;
     padding: 10px 0;
-    background-color: rgba(0, 0, 0, 0.5); /* 검정색 배경에 50% 투명도 적용 */
+    background-color: rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -264,75 +253,41 @@
     padding: 5px 10px;
 }
 
-/* 미디어 쿼리 수정 */
 @media (max-width: 640px) {
     .headerFrame {
-        flex-direction: column;
-        align-items: center;
-        padding: 8px;
+        padding: 12px;
+        gap: 12px;
     }
 
     .productMakersClubContainer {
-        position: static;
-        transform: none;
-        margin: 8px 0;
-        width: 100%;
-    }
-
-    .disquietLogoDark2 {
-        margin-bottom: 8px;
     }
 
     .notificationButton {
         width: 100%;
-        margin-top: 8px;
     }
-
-    /* 기존의 frameChild 스타일 유지 */
 }
 
-/* 추가: 중간 크기 화면을 위한 미디어 쿼리 */
 @media (min-width: 641px) and (max-width: 1024px) {
     .headerFrame {
-        flex-wrap: wrap;
-        justify-content: center;
     }
 
-    .disquietLogoDark2 {
-        order: 1;
-        margin-right: auto;
-    }
-
-    .productMakersClubContainer {
-        order: 2;
-        position: static;
-        transform: none;
-        flex-basis: 100%;
-        margin: 8px 0;
-    }
-
+    .disquietLogoDark2,
+    .productMakersClubContainer,
     .notificationButton {
-        order: 3;
-        margin-left: auto;
-    }
-
-    .marqueeContent span {
-        font-size: 16px; /* 중간 크기 화면에서는 16px로 설정 */
+        margin: 0;
     }
 }
-
-/* 나머지 스타일은 그대로 유지 */
 
 .showContainer {
     width: 100%;
     padding: 10px 0;
-    background-color: rgba(208, 115, 101, 0.5); /* #D07365 with 50% opacity */
+    background-color: rgba(208, 115, 101, 0.5);
     overflow: hidden;
 }
 
 .marquee {
     display: flex;
-    width: 200%; /* 300%에서 200%로 변경 */
+    width: 200%;
     animation: marquee 30s linear infinite;
 }
 
@@ -346,7 +301,7 @@
     flex: 1;
     white-space: nowrap;
     color: #fff;
-    font-size: 16px; /* 작은 화면을 위한 기본 크기를 16px로 변경 */
+    font-size: 16px;
     font-family: "NeoDunggeunmo Pro", sans-serif;
     padding: 0 40px;
     text-align: center;
@@ -356,10 +311,9 @@
     text-shadow: 1px 1px #8c4e45;
 }
 
-/* 큰 화면을 위한 미디어 쿼리 추가 */
 @media (min-width: 1025px) {
     .marqueeContent span {
-        font-size: 20px; /* 큰 화면에서는 20px로 설정 */
+        font-size: 20px;
     }
 }
 
@@ -368,11 +322,87 @@
         transform: translateX(0);
     }
     100% {
-        transform: translateX(-50%); /* -66.666%에서 -50%로 변경 */
+        transform: translateX(-50%);
     }
 }
 
-/* 호버 시 애니메이션 일시 정지 */
 .marquee:hover {
     animation-play-state: paused;
 }
+
+.comingSoon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-size: 24px;
+    font-family: "NeoDunggeunmo Pro", sans-serif;
+}
+
+.frameContainer {
+    height: 100%;
+}
+
+@media (max-height: 600px) {
+    .headerContainer {
+        top: 20vh;
+    }
+}
+
+@media (min-height: 1000px) {
+    .headerContainer {
+        top: 30vh;
+    }
+}
+
+@media (max-width: 768px) {
+    .headerContainer {
+        left: 10%;
+        right: 10%;
+        width: 80%;
+    }
+}
+
+@media (max-width: 480px) {
+    .headerContainer {
+        left: 5%;
+        right: 5%;
+        width: 90%;
+    }
+}
+
+/* LogoComponent를 위한 새로운 스타일 */
+.logoContainer {
+    position: fixed;
+    bottom: 5vh;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    transition: transform 0.05s linear;
+    width: clamp(32px, 10vw, 64px);
+    height: clamp(32px, 10vw, 64px);
+}
+
+/* 제거할 스타일 */
+.surprisedAster {
+    position: absolute;
+    top: -120px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    animation: fadeIn 0.3s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+/* 기존 미디어 쿼리는 그대로 유지 */
